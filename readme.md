@@ -1,5 +1,5 @@
 # U-Mamba2
-### Solution of team KCL-SML for the [ODIN](https://odin-workshops.org/) Challenges ([ToothFairy3](https://toothfairy3.grand-challenge.org/) and [STSR 2025](https://www.codabench.org/competitions/6468/))
+### Solution of team KCL TAIR Lab for the [ODIN](https://odin-workshops.org/) Challenges ([ToothFairy3](https://toothfairy3.grand-challenge.org/) and [STSR 2025](https://www.codabench.org/competitions/6468/))
 
 ## Description
 <div style="justify-content:center">
@@ -8,7 +8,7 @@
   <img alt="U-Mamba2 block" src="./documentation/assets/umamba2_block.png" width="33%" /> 
 </div>
 
-We propose U-Mamba2 which combines the features of U-Net and Mamba2 to efficiently capture global information. 
+We propose U-Mamba2 which combines the features of U-Net and Mamba2 to efficiently capture global information, in the scope of the ODIN challenges. 
 U-Mamba2 has a similar structure to U-Net, with a symmetric encoder-decoder architecture to extract image features across multiple scales, 
 with residual connections between the encoder and decoder blocks at each stage to help the model combine low-level features with high-level features. 
 As convolutional operations are inherently localized, a vanilla U-Net has limited capability to model global long-range dependencies in images. 
@@ -19,6 +19,15 @@ We introduce an optional interactive branch to allow the model to be prompted wi
 refine the output of U-Mamba2, enhancing accuracy and enabling human-in-the-loop collaboration. The optional branch consists of
 a SAM-style point encoder and cross attention blocks to allow the model to integrate click information with the image features.
 
+### Incorporating Dental Knowledge
+We incorporate several domain knowledge into the model design to address key challenges of dental anatomy segmentation in CBCT, in the scope of the ToothFairy3 challenge.
+This includes label smoothing of related anatomies, weighted loss for tiny structures, left-right mirroring augmentation and post-processing based on structure volume.
+
+### Semi-supervised Learning
+Building on the powerful U-Mamba2 model, we introduce U-Mamba2-SSL, a semi-supervised learning framework that employs a multi-stage training strategy. 
+The framework first pre-trains U-Mamba2 in a self-supervised manner using a disruptive autoencoder. 
+It then leverages unlabeled data through consistency regularization, where we introduce input and feature perturbations to ensure stable model outputs. 
+Finally, a pseudo-labeling strategy is implemented with a reduced loss weighting to minimize the impact of potential errors.
 
 ## Setup Environment
 The codes have been tested on Ubuntu 22.04 and 24.04, Python 3.11, Pytorch 2.5.1 Cuda 12.4 and 2.7.1 Cuda 12.8, 
@@ -63,7 +72,7 @@ We thank the authors of  [mamba](https://github.com/state-spaces/mamba),
 ## Disclaimer
 This is a forked repo of [nnUNet v2.6.2](https://github.com/MIC-DKFZ/nnUNet/tree/74ceb6803d10dcee29b2cc481678d3a3d069f281). We made a few changes to the core training codes
 for the competition (e.g. reduce precision for evaluation, extra logging, including interactive clicks, etc.).
-Please see [this](https://github.com/zhiqin1998/UMamba2/commit/49cd5044f704c74c714f74d3e71d25e2e7208624) commit
+Please see [this](https://github.com/zhiqin1998/UMamba2/commit/8cb395407757ae2130657751e96f32a781031caf) commit
 for our contributions.
 
 If you prefer to use the original repo, simply copy the [`nets`](nnunetv2/nets) folder to 
