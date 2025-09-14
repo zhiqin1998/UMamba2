@@ -73,7 +73,7 @@ We thank the authors of  [mamba](https://github.com/state-spaces/mamba),
 This is a forked repo of [nnUNet v2.6.2](https://github.com/MIC-DKFZ/nnUNet/tree/74ceb6803d10dcee29b2cc481678d3a3d069f281). We made a few changes to the core training codes
 for the competition (e.g. reduce precision for evaluation, extra logging, including interactive clicks, etc.).
 Please see [this](https://github.com/zhiqin1998/UMamba2/commit/8cb395407757ae2130657751e96f32a781031caf) commit
-for our contributions.
+for our contributions. The original code is licensed under Apache 2.0 but our contributions are licensed under CC BY-NC.
 
 If you prefer to use the original repo, simply copy the [`nets`](nnunetv2/nets) folder to 
 [nnUNet/nnunetv2](https://github.com/MIC-DKFZ/nnUNet/tree/master/nnunetv2) and make sure to update the generated plan files with
