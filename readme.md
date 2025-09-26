@@ -1,5 +1,7 @@
 # U-Mamba2
 ### Solution of team KCL TAIR Lab for the [ODIN](https://odin-workshops.org/) Challenges ([ToothFairy3](https://toothfairy3.grand-challenge.org/) and [STSR 2025](https://www.codabench.org/competitions/6468/))
+UMamba2 [![UMamba2 Paper](https://img.shields.io/badge/cs.CV-arxiv:2509.12069-B31B1B.svg)](https://arxiv.org/abs/2509.12069)
+| UMamba2-SSL [![UMamba2-SSL Paper](https://img.shields.io/badge/cs.CV-arxiv:2509.20154-B31B1B.svg)](https://arxiv.org/abs/2509.20154)
 
 ## Description
 <div style="justify-content:center">
