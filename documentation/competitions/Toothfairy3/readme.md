@@ -1,9 +1,10 @@
 ## Introduction
+[![UMamba2 Paper](https://img.shields.io/badge/cs.CV-arxiv:2509.12069-B31B1B.svg)](https://arxiv.org/abs/2509.12069)
 
 This document describes our submission to both of the tasks of the [Toothfairy3 Challenge](https://toothfairy3.grand-challenge.org/). 
 For Task 1, the model is our proposed UMamba2 while for Task2, the model is the UMamba2 + cross attention blocks with a SAM-style point encoder.
 The final models are trained for 1500 epochs with a batch size of 2.
-For more details, please see our [paper] (coming soon).
+For more details, please see our [paper](https://arxiv.org/abs/2509.12069).
 
 ## Dataset Preparation
 Download the raw dataset from the [Ditto](https://ditto.ing.unimore.it/toothfairy3/) webpage.
@@ -78,5 +79,8 @@ Optionally, you can further train the model with smaller learning rate using tra
 Set the `-pretrained_weights` argument of `nnUNetv2_train` command to the final checkpoint and 
 the modified `load_pretrained_weights.py` will load the weights correctly.
 
+Note that we used RTX 5090 32GB for model training, if you ran into GPU OOM error, try reducing the input patch size.
+
 ## Inference
 Run inference with the inference script for [Task 1](task1_inference.py) and [Task 2](task2_inference_wclicks.py).
+In `task1_inference.py`, you can find the commented out codes to convert the pulp classes to their corresponding tooth numbers (excluded in the final evaluation on Grand Challenge).

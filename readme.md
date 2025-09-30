@@ -1,7 +1,8 @@
 # U-Mamba2
-### Solution of team KCL TAIR Lab for the [ODIN](https://odin-workshops.org/) Challenges ([ToothFairy3](https://toothfairy3.grand-challenge.org/) and [STSR 2025](https://www.codabench.org/competitions/6468/))
 UMamba2 [![UMamba2 Paper](https://img.shields.io/badge/cs.CV-arxiv:2509.12069-B31B1B.svg)](https://arxiv.org/abs/2509.12069)
 | UMamba2-SSL [![UMamba2-SSL Paper](https://img.shields.io/badge/cs.CV-arxiv:2509.20154-B31B1B.svg)](https://arxiv.org/abs/2509.20154)
+### First Place Solution of team KCL TAIR Lab for the [ODIN](https://odin-workshops.org/) Challenges ([ToothFairy3](https://toothfairy3.grand-challenge.org/) and [STSR 2025](https://www.codabench.org/competitions/6468/))
+Leaderboard: [Task 1](https://toothfairy3.grand-challenge.org/evaluation/test-phase/leaderboard/) and [Task 2](https://toothfairy3.grand-challenge.org/evaluation/iac-interactive-segmentation-test-phase/leaderboard/) in ToothFairy 3; [Task 1](https://www.codabench.org/competitions/6468/#/results-tab) in STSR 2025.
 
 ## Description
 <div style="justify-content:center">
@@ -40,7 +41,7 @@ install the latest version with support for your hardware (cuda, mps, cpu).
    ```
    pip install -e .
    ```
-3. Follow the instructions [here](documentation/setting_up_paths.md) to environment variables for nnUNet.
+3. Follow the instructions [here](documentation/setting_up_paths.md) to set environment variables for nnUNet.
 4. Install `mamba-ssm` library with
    ```bash
    pip install causal-conv1d==1.5.2 mamba-ssm==2.2.5 --no-build-isolation
@@ -58,7 +59,21 @@ by setting `architecture.network_class_name = "nnunetv2.nets.UMambaBot2"`. See o
 ## Citation
 If you find this work useful for your research, please cite our work as
 ```bibtex
+@inproceedings{u-mamba2,
+   title={U-Mamba2: Scaling State Space Models for Dental Anatomy Segmentation in CBCT}, 
+   author={Zhi Qin Tan and Xiatian Zhu and Owen Addison and Yunpeng Li},
+   year={2025},
+   booktitle={Medical Image Computing and Computer Assisted Intervention (MICCAI)},
+   maintitle={Workshop on Oral and Dental Image Analysis (ODIN)},
+}
 
+@inproceedings{u-mamba2-ssl,
+   title={U-Mamba2-SSL for Semi-Supervised Tooth and Pulp Segmentation in CBCT}, 
+   author={Zhi Qin Tan and Xiatian Zhu and Owen Addison and Yunpeng Li},
+   year={2025},
+   booktitle={Medical Image Computing and Computer Assisted Intervention (MICCAI)},
+   maintitle={Workshop on Oral and Dental Image Analysis (ODIN)},
+}
 ```
 
 ## Feedback

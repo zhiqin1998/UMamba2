@@ -1,9 +1,10 @@
 ## Introduction
+[![UMamba2-SSL Paper](https://img.shields.io/badge/cs.CV-arxiv:2509.20154-B31B1B.svg)](https://arxiv.org/abs/2509.20154)
 
 This document describes our submission to the [STSR 2025 Task 1](https://www.codabench.org/competitions/6468/). 
 The model is our proposed UMamba2 pretrained via self-supervised learning, trained with consistency regularization and second stage pseudolabel supervision.
-The final models are trained for 1500 epochs with a batch size of 2.
-For more details, please see our [paper] (coming soon).
+The final model is trained for 1500 epochs with a batch size of 2.
+For more details, please see our [paper](https://arxiv.org/abs/2509.20154).
 
 ## Dataset Preparation
 After downloading the datasets, move the dataset to your `nnUNet_raw` folder, then move all labeled images into `Images` and `Masks`, and unlabeled images into `Unlabeled`.
@@ -31,7 +32,7 @@ First, run the usual nnUNet preprocessing with:
 nnUNetv2_preprocess -d 319 -c 3d_fullres_torchres_mambabot2_ps160x256x256_bs1 -plans_name nnUNetResEncUNetLPlans_torchres -np 48
 ```
 Then, adapt `preprocess_unlabeled.py` and run preprocessing for the unlabeled data. 
-This creates dummy segmentation ground truth (not used for training) for the unlabeled data so that nnUNet can load them properly for semi-supervised learning.
+This creates dummy segmentation ground truth (not used for training) for the unlabeled data so that nnUNet can load them properly (without needing to modify the codes) for semi-supervised learning.
 For the training script to utilize the unlabeled data properly, ensure that `splits_final.json` (should be automatically created in the dataset conversion script)
 contains the proper splits with keys `train`, `unlabeled` and `val`.
 
