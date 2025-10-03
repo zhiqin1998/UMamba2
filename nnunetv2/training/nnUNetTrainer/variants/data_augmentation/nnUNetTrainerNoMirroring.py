@@ -59,6 +59,20 @@ class nnUNetTrainer_onlyMirror01_1500ep(nnUNetTrainer_onlyMirror01):
         self.num_epochs = 1500
 
 
+class nnUNetTrainer_onlyMirror01_500ep(nnUNetTrainer_onlyMirror01):
+    def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict,
+                 device: torch.device = torch.device('cuda')):
+        super().__init__(plans, configuration, fold, dataset_json, device)
+        self.num_epochs = 500
+
+
+class nnUNetTrainerNoMirroring_500ep(nnUNetTrainerNoMirroring):
+    def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict,
+                 device: torch.device = torch.device('cuda')):
+        super().__init__(plans, configuration, fold, dataset_json, device)
+        self.num_epochs = 500
+        
+
 class nnUNetTrainer_onlyMirror01_DASegOrd0(nnUNetTrainer_onlyMirror01):
     @staticmethod
     def get_training_transforms(
