@@ -19,7 +19,7 @@ nnUNet_raw
   │   ├── imagesTr
   │   ├── labeslTr
   │   └── dataset.json
-  └── Dataset{task1_dataset_id}_ToothFairy3_IAN
+  └── Dataset{task2_dataset_id}_ToothFairy3_IAN
       ├── imagesTr
       ├── labeslTr
       ├── ToothFairy3_clicks
