@@ -10,7 +10,11 @@ For more details, please see our [paper](https://arxiv.org/abs/2509.12069).
 Download the raw dataset from the [Ditto](https://ditto.ing.unimore.it/toothfairy3/) webpage.
 
 Adapt and run the [dataset conversion script](../../../nnunetv2/dataset_conversion/Dataset119_ToothFairy3_All.py). 
-This script removes the unused label ids and combine all pulp classes into a single class.
+This script removes the unused label ids and combines all pulp classes into a single class. Please change the input and output folder name accordingly.
+
+Then, either softlink or copy/move the `imagesTr` and the remapped `labelsTr` folders into your `nnUNet_raw` directory.
+You will also have to manually copy the generated `mapped_dataset.json` and rename it to `dataset.json` before pasting it into the respective folders.
+
 The final mapping used for Task 1 is `mapping_DS119_singlepulp` and for Task 2, it is `mapping_DS219`.
 Your nnUNet_raw directory should be similar to:
 ```
