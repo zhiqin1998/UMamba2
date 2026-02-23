@@ -1185,7 +1185,16 @@ class nnUNetTrainer_TF3_abl_accum2(nnUNetTrainer_TF3_Task1):
         self.accumulate_steps = 2
         self.num_iterations_per_epoch = self.num_iterations_per_epoch * 2
 
-class nnUNetTrainer_TF3_abl_accum2_smooth(nnUNetTrainer_TF3_Task1):
+class nnUNetTrainer_onlyMirror01_300ep(nnUNetTrainer_onlyMirror01):
+    def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict,
+                 device: torch.device = torch.device('cuda')):
+        super().__init__(plans, configuration, fold, dataset_json, device)
+        self.num_val_iterations_per_epoch = 10  # 50 # save some time
+        self.num_epochs = 300
+        self.accumulate_steps = 2
+        self.num_iterations_per_epoch = self.num_iterations_per_epoch * 2
+
+class nnUNetTrainer_TF3_abl_accum2_smooth(nnUNetTrainer):
     def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict,
                  device: torch.device = torch.device('cuda')):
         super().__init__(plans, configuration, fold, dataset_json, device)
@@ -1227,7 +1236,7 @@ class nnUNetTrainer_TF3_abl_accum2_smooth(nnUNetTrainer_TF3_Task1):
         return loss
 
 
-class nnUNetTrainer_TF3_abl_accum2_weighted(nnUNetTrainer_TF3_Task1):
+class nnUNetTrainer_TF3_abl_accum2_weighted(nnUNetTrainer):
     def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict,
                  device: torch.device = torch.device('cuda')):
         super().__init__(plans, configuration, fold, dataset_json, device)
