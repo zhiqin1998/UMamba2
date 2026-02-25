@@ -1283,7 +1283,7 @@ class nnUNetTrainer_TF3_abl_accum2_weighted(nnUNetTrainer):
         return loss
 
 
-class nnUNetTrainer_TF3_primus(nnUNetTrainer_warmup): # see ../../primus for reference
+class nnUNetTrainer_TF3_primus(nnUNetTrainer_warmup, nnUNetTrainer_onlyMirror01): # see ../../primus for reference
     def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict,
                  device: torch.device = torch.device('cuda')):
         super().__init__(plans, configuration, fold, dataset_json, device)
